@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events & Workshops</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS file -->
+   <style>/* events.css - Events & Workshops Page Styles */
+
+
+/* ===== Events Section ===== */
+.events {
+    max-width: 1000px;
+    margin: 0 auto 3rem;
+    padding: 0 1.5rem;
+}
+
+.events h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary-color);
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    position: relative;
+}
+
+.events h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: var(--accent-color);
+    margin: 1rem auto 0;
+}
+
+.event {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--accent-color);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.event:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.event::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(210,180,140,0.1) 0%, rgba(255,255,255,0) 100%);
+    z-index: 0;
+}
+
+.event h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin: 0 0 1rem 0;
+    position: relative;
+}
+
+.event p {
+    color: var(--text-color);
+    margin: 0.5rem 0;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    position: relative;
+}
+
+.event button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.8rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.event button:hover {
+    background: var(--dark-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(111, 78, 55, 0.2);
+}
+
+/* ===== Registration Modal ===== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 2.5rem;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-content h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin: 0 0 1.5rem 0;
+    text-align: center;
+}
+
+.close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    color: #aaa;
+    font-size: 1.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.close:hover {
+    color: var(--primary-color);
+    transform: rotate(90deg);
+}
+
+#registration-form input {
+    width: 100%;
+    padding: 0.8rem;
+    margin: 0.8rem 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+#registration-form input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(111, 78, 55, 0.2);
+}
+
+#registration-form input[type="submit"] {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+#registration-form input[type="submit"]:hover {
+    background: var(--dark-color);
+}
+
+/* ===== Footer ===== */
+footer {
+    background-color: var(--dark-color);
+    color: var(--text-light);
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+}
+
+footer p {
+    margin: 0 0 1rem 0;
+    font-size: 1rem;
+}
+
+.social-links a {
+    color: var(--accent-color);
+    margin: 0 0.5rem;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+/* Add these to your existing CSS */
+
+/* Add to your existing modal styles */
+.modal-content {
+    background-color: white;
+    margin: 5% auto; /* Reduced from 10% to allow more space */
+    padding: 2.5rem;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    animation: modalFadeIn 0.3s ease-out;
+    max-height: 80vh; /* Limit height to 80% of viewport */
+    overflow-y: auto; /* Enable vertical scrolling */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ensure form takes available space without overflow */
+#registration-form {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+/* Make form contents scrollable */
+.form-scrollable {
+    overflow-y: auto;
+    flex-grow: 1;
+    padding-right: 5px; /* Prevent content from touching scrollbar */
+}
+
+/* Custom scrollbar styling */
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: var(--light-color);
+    border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.4rem;
+    }
+    
+    .events h2 {
+        font-size: 1.8rem;
+    }
+    
+    .event {
+        padding: 1.5rem;
+    }
+    
+    .modal-content {
+        margin: 15% auto;
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .event h3 {
+        font-size: 1.3rem;
+    }
+    
+    .modal-content {
+        width: 95%;
+    }
+}</style>
+</head>
+<body>
+    <header>
+        <h1>Events & Workshops</h1>
+    </header>
+    
+    <nav class="nav-container">
+  <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="coffeepage.html">Coffee Selection</a></li>
+            <li><a href="brewing.html">Brewing Equipment</a></li> <!-- Corrected the href to 'brewing.html' -->
+            <li><a href="event.html">Events & Workshops</a></li>
+            <li><a href="offers.html">Special Offers</a></li> 
+            <li><a href="cart.html"></i>Shopping Cart</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+        </ul>
+    </nav>
+
+    <section class="events">
+        <h2>Upcoming Events</h2>
+
+        <!-- Event 1 -->
+        <div class="event">
+            <h3>Coffee Tasting Session</h3>
+            <p>Date: November 5, 2024</p>
+            <p>Location: Bean Boutique, Downtown</p>
+            <button onclick="openRegistration('Coffee Tasting Session')">Register</button>
+        </div>
+
+        <!-- Event 2 -->
+        <div class="event">
+            <h3>Brewing Class: French Press</h3>
+            <p>Date: November 12, 2024</p>
+            <p>Location: Bean Boutique, Main Street</p>
+            <button onclick="openRegistration('Brewing Class: French Press')">Register</button>
+        </div>
+
+        <!-- Event 3 -->
+        <div class="event">
+            <h3>Meet the Roaster Event</h3>
+            <p>Date: November 20, 2024</p>
+            <p>Location: Bean Boutique, City Center</p>
+            <button onclick="openRegistration('Meet the Roaster Event')">Register</button>
+        </div>
+    </section>
+<!-- Add this to your head section for Font Awesome icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<div id="registration-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Register for <span id="event-name"></span></h2>
+        
+        <div class="event-details">
+            <p><i class="far fa-calendar-alt"></i> <span id="event-date"></span></p>
+            <p><i class="fas fa-map-marker-alt"></i> <span id="event-location"></span></p>
+            <p><i class="fas fa-tag"></i> Price: <span id="event-price"></span></p>
+            <p><i class="fas fa-users"></i> Seats available: <span id="event-seats"></span></p>
+        </div>
+        
+        <form id="registration-form">
+            <div class="form-scrollable">
+                <input type="text" id="name" name="name" placeholder="Your Full Name" required>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <input type="tel" id="phone" name="phone" placeholder="Phone Number (optional)">
+                <textarea id="notes" name="notes" placeholder="Special requests or notes"></textarea>
+            </div>
+            <input type="submit" value="Complete Registration">
+        </form>
+    </div>
+</div>
+
+    <footer>
+        <p>© 2024 Bean Boutique | All Rights Reserved</p>
+        <div class="social-links">
+            <a href="book.com/ishan.bapardekar/">Facebook</a> | <a href="https://www.instagram.com/ishaann.21/">Instagram</a> | <a href="https://x.com/ishaannb">Twitter</a>
+        </div>
+    </footer>
+
+    <script>// event.js - Enhanced Events & Workshops Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // DOM Elements
+    const modal = document.getElementById('registration-modal');
+    const registrationForm = document.getElementById('registration-form');
+    const eventsContainer = document.querySelector('.events');
+    
+    // Sample Events Data (would normally come from an API)
+    const eventsData = [
+        {
+            id: 1,
+            title: "Coffee Tasting Session",
+            date: "November 5, 2024",
+            time: "6:00 PM - 8:00 PM",
+            location: "Bean Boutique, Downtown",
+            description: "Join us for an evening exploring exotic coffee flavors from around the world. Perfect for both beginners and connoisseurs.",
+            seats: 15,
+            price: 25.00,
+            image: "images/coffee-tasting.jpg"
+        },
+        {
+            id: 2,
+            title: "Brewing Class: French Press",
+            date: "November 12, 2024",
+            time: "10:00 AM - 12:00 PM",
+            location: "Bean Boutique, Main Street",
+            description: "Master the art of French Press brewing with our expert baristas. Includes hands-on practice and tasting.",
+            seats: 10,
+            price: 35.00,
+            image: "images/french-press-class.jpg"
+        },
+        {
+            id: 3,
+            title: "Meet the Roaster Event",
+            date: "November 20, 2024",
+            time: "7:00 PM - 9:00 PM",
+            location: "Bean Boutique, City Center",
+            description: "An exclusive opportunity to meet our master roaster and learn about coffee bean selection and roasting techniques.",
+            seats: 20,
+            price: 40.00,
+            image: "images/roaster-event.jpg"
+        }
+    ];
+
+    // Initialize the page
+    function initEventsPage() {
+        renderEvents();
+        setupModal();
+        setupFormValidation();
+    }
+
+    // Render events to the page
+    function renderEvents() {
+        eventsContainer.innerHTML = '<h2>Upcoming Events</h2>';
+        
+        eventsData.forEach(event => {
+            const eventElement = document.createElement('div');
+            eventElement.className = 'event';
+            eventElement.innerHTML = `
+                <div class="event-header">
+                    <h3>${event.title}</h3>
+                    <div class="event-price">$${event.price.toFixed(2)}</div>
+                </div>
+                <div class="event-details">
+                    <p><i class="far fa-calendar-alt"></i> ${event.date} • ${event.time}</p>
+                    <p><i class="fas fa-map-marker-alt"></i> ${event.location}</p>
+                    <p class="event-description">${event.description}</p>
+                    <p class="event-seats"><i class="fas fa-users"></i> ${event.seats} seats available</p>
+                </div>
+                <button class="register-btn" data-id="${event.id}">Register Now</button>
+            `;
+            eventsContainer.appendChild(eventElement);
+        });
+
+        // Add event listeners to all register buttons
+        document.querySelectorAll('.register-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const eventId = parseInt(this.dataset.id);
+                openRegistration(eventId);
+            });
+        });
+    }
+
+    // Modal functionality
+    function setupModal() {
+        // Close modal when clicking the X
+        document.querySelector('.close').addEventListener('click', closeRegistration);
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeRegistration();
+            }
+        });
+    }
+
+    // Open registration modal
+    function openRegistration(eventId) {
+        const event = eventsData.find(e => e.id === eventId);
+        if (!event) return;
+
+        // Populate modal with event details
+        document.getElementById('event-name').textContent = event.title;
+        document.getElementById('event-date').textContent = `${event.date} • ${event.time}`;
+        document.getElementById('event-location').textContent = event.location;
+        document.getElementById('event-price').textContent = `$${event.price.toFixed(2)}`;
+        document.getElementById('event-seats').textContent = `${event.seats} seats available`;
+        
+        // Store current event ID in the form
+        registrationForm.dataset.eventId = eventId;
+        
+        // Show modal
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+
+    // Close registration modal
+    function closeRegistration() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        registrationForm.reset();
+    }
+
+    // Form validation and submission
+    function setupFormValidation() {
+        registrationForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const eventId = parseInt(this.dataset.eventId);
+            const event = eventsData.find(e => e.id === eventId);
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone')?.value.trim();
+            const notes = document.getElementById('notes')?.value.trim();
+            
+            // Validate email
+            if (!validateEmail(email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+            
+            // In a real app, you would send this data to a server
+            console.log('Registration submitted:', {
+                eventId,
+                eventTitle: event.title,
+                name,
+                email,
+                phone,
+                notes
+            });
+            
+            // Show confirmation
+            showConfirmation(event, name, email);
+            
+            // Reset and close
+            closeRegistration();
+        });
+    }
+
+    // Email validation helper
+    function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    }
+
+    // Show confirmation message
+    function showConfirmation(event, name, email) {
+        const confirmation = document.createElement('div');
+        confirmation.className = 'confirmation-message';
+        confirmation.innerHTML = `
+            <h3>Thank you, ${name}!</h3>
+            <p>You've successfully registered for:</p>
+            <p><strong>${event.title}</strong></p>
+            <p>${event.date} • ${event.time}</p>
+            <p>A confirmation has been sent to ${email}</p>
+            <button class="close-confirmation">Close</button>
+        `;
+        
+        document.body.appendChild(confirmation);
+        
+        // Add close button functionality
+        document.querySelector('.close-confirmation').addEventListener('click', function() {
+            document.body.removeChild(confirmation);
+        });
+    }
+
+    // Initialize the page
+    initEventsPage();
+});</script>
+</body>
+</html>

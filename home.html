@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bean Boutique</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+  <style>
+  :root {
+    --primary-color: #6F4E37; /* Coffee brown */
+    --secondary-color: #C4A484; /* Latte color */
+    --accent-color: #D2B48C; /* Tan */
+    --light-color: #F5F5DC; /* Beige */
+    --dark-color: #3E2723; /* Dark coffee */
+    --text-color: #333;
+    --text-light: #fff;
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: var(--light-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Header Styles */
+header {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow);
+}
+
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+}
+/* General Styles */
+* /* home.css - Specific styles for home page */
+
+/* Hero Section */
+section:first-of-type {
+    text-align: center;
+    padding: 5rem 2rem;
+    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), 
+                url('coffes/coffee-beans-background.jpg') center/cover no-repeat;
+    margin-bottom: 3rem;
+}
+
+section:first-of-type h3 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--dark-color);
+}
+
+/* Coffee Blends Section */
+section:nth-of-type(2) {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+section:nth-of-type(2) h2 {
+    font-size: 2rem;
+}
+
+section:nth-of-type(2) p {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+}
+
+/* Slideshow Styles */
+.slideshow-section {
+    margin: 2rem 10rem;
+}
+
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.mySlides {
+    display: none;
+}
+
+.mySlides img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    vertical-align: middle;
+}
+
+.slide-text {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    padding: 15px;
+    font-size: 1.2rem;
+}
+
+/* Navigation buttons */
+.slideshow-prev, 
+.slideshow-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: rgba(0,0,0,0.3);
+    border: none;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.slideshow-next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.slideshow-prev:hover, 
+.slideshow-next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+/* Dot indicators */
+.slideshow-dots {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.dot {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.active, .dot:hover {
+    background-color: var(--primary-color);
+}
+
+/* Fade animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+}
+
+/* Special Offers Section */
+#offersSection {
+    background-color: var(--accent-color);
+    border-radius: 8px;
+    padding: 2rem;
+    margin: 3rem auto;
+    max-width: 1000px;
+    box-shadow: var(--shadow);
+}
+
+#offersSection h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+#offersSection ul {
+    list-style-position: inside;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#offersSection li {
+    margin-bottom: 0.5rem;
+    padding-left: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    section:first-of-type {
+        padding: 3rem 1rem;
+    }
+    
+    .mySlides img {
+        height: 300px;
+    }
+    
+    .text {
+        font-size: 1rem;
+    }
+}
+#switchToSignIn {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#switchToSignIn:hover {
+    text-decoration: underline;
+}
+</style>  
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Bean Boutique</h1>
+        <!-- Search Bar -->
+        <div class="search-container">
+            <form id="searchForm" onsubmit="return handleSearch(event)">
+                <input type="text" id="searchInput" placeholder="Search..." name="search">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    </header>
+    
+    <!-- Navigation -->
+    <nav class="nav-container">
+  <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="coffeepage.html">Coffee Selection</a></li>
+            <li><a href="brewing.html">Brewing Equipment</a></li> <!-- Corrected the href to 'brewing.html' -->
+            <li><a href="event.html">Events & Workshops</a></li>
+            <li><a href="offers.html">Special Offers</a></li> 
+            <li><a href="cart.html"></i>Shopping Cart</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+        </ul>
+          <div class="login-container"> <!-- New container for login button -->
+          <button class="login-btn" style=>Login</button>
+    </nav>
+
+    <!-- Login Modal -->
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close-login" onclick="closeLoginModal()">&times;</span>
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter Username" required>
+
+            <label for="login-password">Password</label> <!-- Updated `for` attribute to match new `id` -->
+            <input type="password" id="login-password" name="password" placeholder="Enter Password" required> <!-- Changed id to "login-password" -->
+
+            <button type="submit" class="login-submit">Login</button>
+        </form>
+    </div>
+</div>
+
+<!-- Sign-In Modal -->
+<div id="signinModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Sign In</h2>
+        <form id="signInForm" onsubmit="return handleSignIn(event)">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="signin-password">Password:</label> <!-- Updated `for` attribute to match new `id` -->
+            <input type="password" id="signin-password" name="password" required> <!-- Changed id to "signin-password" -->
+
+            <button type="submit">Sign In</button>
+        </form>
+        <p id="signInError" style="color:red;display:none;">Invalid email or password. Please try again.</p>
+    </div>
+</div>
+
+    <!-- Main Content -->
+    <section>
+        <h3>WELCOME TO BEAN BOUTIQUE</h3>
+    </section>
+
+    <section>
+        <h2>Our Unique Coffee Blends</h2>
+        <p>Explore our selection of specialty coffee blends sourced from around the world.</p>
+    </section>
+
+    <!-- Special Offers Section (hidden by default until sign-in) -->
+    <section id="offersSection">
+        <h2>Special Offers</h2>
+        <p>Check out our exclusive offers for Bean Boutique members!</p>
+        <ul>
+            <li>Get 10% off your first order</li>
+            <li>Free shipping on orders over $50</li>
+            <li>Buy 2 Get 1 Free on select coffee blends</li>
+        </ul>
+    </section>
+
+    <!-- Menu Button -->
+    <div class="menu-button-container">
+        <a href="coffeepage.html" class="menu-button">Go to Menu</a>
+    </div>
+
+    <!-- Slideshow -->
+<section class="slideshow-section" aria-label="Coffee experience slideshow">
+    <h2>Explore Our Coffee Experience</h2>
+    <div class="slideshow-container" role="region" aria-roledescription="carousel">
+        <!-- Slide 1 -->
+        <div class="mySlides fade" role="group" aria-roledescription="slide" aria-label="1 of 3">
+            <img src="coffes/ourcoffeeshop.jpg" alt="Interior of Bean Boutique showing cozy seating and coffee bar">
+            <div class="slide-text">Our Shop</div>
+        </div>
+    
+        <!-- Slide 2 -->
+        <div class="mySlides fade" role="group" aria-roledescription="slide" aria-label="2 of 3">
+            <img src="pics/coffeeour.webp" alt="Variety of freshly brewed coffee blends in our shop">
+            <div class="slide-text">Discover Our Coffee Blends</div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="mySlides fade" role="group" aria-roledescription="slide" aria-label="3 of 3">
+            <img src="coffes/coffeemachine.jpg" alt="Professional coffee brewing equipment and accessories">
+            <div class="slide-text">Brewing Equipment & Accessories</div>
+        </div>
+    
+        <!-- Navigation buttons -->
+        <button class="slideshow-prev" onclick="plusSlides(-1)" aria-label="Previous slide">
+            &#10094;
+        </button>
+        <button class="slideshow-next" onclick="plusSlides(1)" aria-label="Next slide">
+            &#10095;
+        </button>
+    </div>
+
+    <!-- Dot indicators -->
+    <div class="slideshow-dots">
+        <span class="dot" onclick="currentSlide(1)" aria-label="Go to slide 1"></span>
+        <span class="dot" onclick="currentSlide(2)" aria-label="Go to slide 2"></span>
+        <span class="dot" onclick="currentSlide(3)" aria-label="Go to slide 3"></span>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Bean Boutique | All Rights Reserved</p>
+        <div class="social-links">
+            <a href="book.com/ishan.bapardekar/">Facebook</a> | <a href="https://www.instagram.com/ishaann.21/">Instagram</a> | <a href="https://x.com/ishaannb">Twitter</a>
+        </div>
+    </footer>
+
+    <script src="home.js" defer></script> <!-- Link to JS file -->
+</body>
+</html>

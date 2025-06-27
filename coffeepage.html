@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Selection - Bean Boutique</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>/* coffee-selection.css - Specific styles for coffee selection page */
+
+/* Coffee Catalogue Section */
+.coffee-catalogue {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.coffee-item {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.coffee-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(111, 78, 55, 0.2);
+}
+
+.coffee-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 3px solid var(--accent-color);
+}
+
+.coffee-item h2 {
+    color: var(--primary-color);
+    padding: 1rem 1rem 0;
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.coffee-item h2:hover {
+    color: var(--dark-color);
+}
+
+.coffee-item p {
+    padding: 0 1rem;
+    margin: 0.5rem 0;
+}
+
+.coffee-item .details {
+    padding: 0 1rem 1rem;
+    background-color: var(--light-color);
+    margin: 0.5rem 1rem 1rem;
+    border-radius: 5px;
+}
+
+.coffee-item .details p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.coffee-item .details p strong {
+    color: var(--primary-color);
+}
+
+.add-to-cart {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    margin: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    align-self: center;
+    width: calc(100% - 2rem);
+}
+
+.add-to-cart:hover {
+    background-color: var(--dark-color);
+    transform: translateY(-2px);
+}
+
+/* Filter Bar */
+.filter-bar {
+    background-color: var(--secondary-color);
+    padding: 2rem;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.filter-bar h2 {
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+}
+
+.filter-bar label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--dark-color);
+    font-weight: 500;
+}
+
+.filter-bar select {
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    border: 2px solid var(--primary-color);
+    background-color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 250px;
+    max-width: 100%;
+}
+
+.filter-bar select:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(111, 78, 55, 0.3);
+}
+
+/* Page Header */
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .coffee-catalogue {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        padding: 1rem;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .filter-bar {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .coffee-catalogue {
+        grid-template-columns: 1fr;
+    }
+    
+    .filter-bar select {
+        width: 100%;
+    }
+}
+
+/* Animation for details toggle */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.details[style*="block"] {
+    animation: fadeIn 0.3s ease-out;
+}</style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Our Coffee Selection</h1>
+    </header>
+
+     <nav class="nav-container">
+  <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="coffeepage.html">Coffee Selection</a></li>
+            <li><a href="brewing.html">Brewing Equipment</a></li> <!-- Corrected the href to 'brewing.html' -->
+            <li><a href="event.html">Events & Workshops</a></li>
+            <li><a href="offers.html">Special Offers</a></li> 
+            <li><a href="cart.html"></i>Shopping Cart</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+        </ul>
+        </nav>
+   
+
+<!-- Coffee Catalogue Section -->
+<section class="coffee-catalogue">
+<!-- Coffee Item 1 -->
+    <div class="coffee-item">
+        <img src="coffes/eespresso.jpg" alt="espresso">
+        <h2 class="coffee-name" onclick="toggleDetails(this)">espresso</h2>
+        <p><strong>Price:</strong> $13</p>
+        
+        <!-- Hidden details -->
+        <div class="details" style="display: none;">
+            <p><strong>Description:</strong>A beverage made by forcing hot water through finely-ground coffee beans at high pressure.</p>
+            <p><strong>Tasting Notes:</strong> Concentrated, strong, and dark coffee.</p>
+            <p><strong>Recommended Brewing Method:</strong> A concentrated coffee beverage made by forcing hot water through finely-ground coffee at high pressure </p>
+        </div>
+        
+        <button class="add-to-cart" onclick="addToCart('espresso', 10)">Add to Cart</button>
+    </div>
+
+   <!-- Coffee Item 2 -->
+<div class="coffee-item">
+    <img src="beans/arabicabeans.jpg" alt="arabica beans">
+    <h2 class="coffee-name" onclick="toggleDetails(this)">arabica beans</h2>
+    <p><strong>Price:</strong> $13</p>
+    
+    <!-- Hidden details -->
+    <div class="details" style="display: none;">
+        <p><strong>Description:</strong>Arabica beans boast a wide range of flavor profiles, from fruity and floral to chocolaty and nutty..</p>
+        <p><strong>Tasting Notes:</strong>smooth, nuanced flavors and pleasant acidity.</p>
+        <p><strong>Recommended Brewing Method:</strong> pour-over,french-press </p>
+    </div>
+    
+    <button class="add-to-cart" onclick="addToCart('arabica beans', 13)">Add to Cart</button>
+</div>
+
+<!-- Coffee Item 3 -->
+<div class="coffee-item">
+    <img src="beans/Robustabean.jpg" alt="Robusta beans">
+    <h2 class="coffee-name" onclick="toggleDetails(this)">Robusta beans</h2>
+    <p><strong>Price:</strong> $19</p>
+    
+    <!-- Hidden details -->
+    <div class="details" style="display: none;">
+        <p><strong>Description:</strong>  Robusta plants thrive at lower altitudes and are predominantly cultivated in regions like Africa and Southeast Asia</p>
+        <p><strong>Tasting Notes:</strong>bold, strong </p>
+        <p><strong>Recommended Brewing Method:</strong> espresso machine, french-press</p>
+    </div>
+    
+    <button class="add-to-cart" onclick="addToCart('Robusta beans', 19)">Add to Cart</button>
+</div>
+
+<!-- Coffee Item 4 -->
+<div class="coffee-item">
+    <img src="beans/Ethiopian.jpg" alt="Ethiopian mist">
+    <h2 class="coffee-name" onclick="toggleDetails(this)">Ethiopian mist</h2>
+    <p><strong>Price:</strong> $8</p>
+    
+    <!-- Hidden details -->
+    <div class="details" style="display: none;">
+        <p><strong>Description:</strong> A bright, fruity coffee with hints of blueberry and jasmine.</p>
+        <p><strong>Tasting Notes:</strong> Blueberry, Floral, Bright Acidity</p>
+        <p><strong>Recommended Brewing Method:</strong> Pour-over, Chemex</p>
+    </div>
+    
+    <button class="add-to-cart" onclick="addToCart('Ethiopian Mist', 8)">Add to Cart</button>
+
+</div>
+
+<!-- Coffee Item 5 -->
+<div class="coffee-item">
+    <img src="beans/Colombian.jpg" alt="Colombian Dark Roast">
+    <h2 class="coffee-name" onclick="toggleDetails(this)">Colombian Dark Roast</h2>
+    <p><strong>Price:</strong> $12</p>
+    
+    <!-- Hidden details -->
+    <div class="details" style="display: none;">
+        <p><strong>Description:</strong> A bold and rich coffee with chocolate and nutty flavors.</p>
+        <p><strong>Tasting Notes:</strong> Dark Chocolate, Hazelnut, Full-bodied</p>
+        <p><strong>Recommended Brewing Method:</strong> French Press, Espresso</p>
+    </div>
+    
+    <button class="add-to-cart" onclick="addToCart('Colombian Dark Roast', 12)">Add to Cart</button>
+</div>
+<!-- Coffee Item 6 -->
+<div class="coffee-item">
+    <img src="beans/Libericabean.jpg" alt="Liberica beans">
+    <h2 class="coffee-name" onclick="toggleDetails(this)">Liberica</h2>
+    <p><strong>Price:</strong> $14</p>
+    
+    <!-- Hidden details -->
+    <div class="details" style="display: none;">
+        <p><strong>Description:</strong> Originating from West Africa,.</p>
+        <p><strong>Tasting Notes:</strong>distinctively fruity and floral flavor profile with hints of woody and smoky notes</p>
+        <p><strong>Recommended Brewing Method:</strong> pour-over</p>
+    </div>
+    
+    <button class="add-to-cart" onclick="addToCart('Liberica beans', 14)">Add to Cart</button>
+
+</div><!-- Coffee Item 7 -->
+<div class="coffee-item">
+    <img src="beans/Excelsa.jpg" alt="Excelsa bean">
+    <h2 class="coffee-name" onclick="toggleDetails(this)">Excelsa bean</h2>
+    <p><strong>Price:</strong> $9</p>
+    
+    <!-- Hidden details -->
+    <div class="details" style="display: none;">
+        <p><strong>Description:</strong> Formerly classified as a variety of Liberica, Excelsa beans have since been recognized as a distinct species.</p>
+        <p><strong>Tasting Notes:</strong> fruity, spicy, and tart notes</p>
+        <p><strong>Recommended Brewing Method:</strong>French press, pour-over, and drip brewing.</p>
+    </div>
+    
+    <button class="add-to-cart" onclick="addToCart('Excelsa bean', 9)">Add to Cart</button>
+
+</div><!-- Coffee Item 8 -->
+<div class="coffee-item">
+    <img src="beans/Typica.jpg" alt="Typica beans">
+    <h2 class="coffee-name" onclick="toggleDetails(this)">Typica beans</h2>
+    <p><strong>Price:</strong> $15</p>
+    
+    <!-- Hidden details -->
+    <div class="details" style="display: none;">
+        <p><strong>Description:</strong>Considered one of the oldest cultivated varieties of coffee.</p>
+        <p><strong>Tasting Notes:</strong>  smooth, well-balanced</p>
+        <p><strong>Recommended Brewing Method:</strong> pour-over</p>
+    </div>
+    
+    <button class="add-to-cart" onclick="addToCart('Typica beans',15)">Add to Cart</button>
+
+</div><!-- Coffee Item 9 -->
+<div class="coffee-item">
+    <img src="beans/gesha.jpg" alt="Geisha/Gesha beans">
+    <h2 class="coffee-name" onclick="toggleDetails(this)">Geisha/Gesha beans</h2>
+    <p><strong>Price:</strong> $17</p>
+    
+    <!-- Hidden details -->
+    <div class="details" style="display: none;">
+        <p><strong>Description:</strong> Hailing from Ethiopia originally, Geisha beans have gained worldwide acclaim for their exceptional cup quality and unique flavor profile.</p>
+        <p><strong>Tasting Notes:</strong>floral aroma, vibrant acidity, and complex, tea-like flavors. </p>
+        <p><strong>Recommended Brewing Method:</strong> pour-over, Chemex, AeroPress, or French press</p>
+    </div>
+    
+    <button class="add-to-cart" onclick="addToCart('Geisha/Gesha beans', 17)">Add to Cart</button>
+
+</div><!-- Coffee Item 10 -->
+<div class="coffee-item">
+    <img src="beans/Bourbon.jpg" alt="Bourbon beans">
+    <h2 class="coffee-name" onclick="toggleDetails(this)">Bourbon beans</h2>
+    <p><strong>Price:</strong> $19</p>
+    
+    <!-- Hidden details -->
+    <div class="details" style="display: none;">
+        <p><strong>Description:</strong> These beans are often grown in high-altitude regions of Central and South America and are cherished for their smooth, well-balanced profile.</p>
+        <p><strong>Tasting Notes:</strong> sweet, caramel-like flavors and creamy body</p>
+        <p><strong>Recommended Brewing Method:</strong> pour-over</p>
+    </div>
+    
+    <button class="add-to-cart" onclick="addToCart('Bourbon beans', 19)">Add to Cart</button>
+
+</div><!-- Coffee Item 11 -->
+<div class="coffee-item">
+    <img src="coffes/Moccachino.jpg" alt="Moccachino">
+    <h2 class="coffee-name" onclick="toggleDetails(this)">Moccachino</h2>
+    <p><strong>Price:</strong>$9</p>
+    
+    <!-- Hidden details -->
+    <div class="details" style="display: none;">
+        <p><strong>Description:</strong>an espresso shot (double) with either a combination of steamed milk and cocoa powder or chocolate milk</p>
+        <p><strong>Tasting Notes:</strong> sweet</p>
+        <p><strong>Recommended Brewing Method:</strong> coffee maker, blender, or steamer</p>
+    </div>
+    
+    <button class="add-to-cart" onclick="addToCart('Moccachino', 9)">Add to Cart</button>
+
+</div><!-- Coffee Item 12 -->
+<div class="coffee-item">
+    <img src="coffes/frappe.jpg" alt="frappe">
+    <h2 class="coffee-name" onclick="toggleDetails(this)">frappe</h2>
+    <p><strong>Price:</strong> $8</p>
+    
+    <!-- Hidden details -->
+    <div class="details" style="display: none;">
+        <p><strong>Description:</strong>a Greek iced coffee drink .</p>
+        <p><strong>Tasting Notes:</strong> frothy, sweet, and balanced </p>
+        <p><strong>Recommended Brewing Method:</strong>pour</p>
+    </div>
+    
+    <button class="add-to-cart" onclick="addToCart('frappe', 8)">Add to Cart</button>
+
+</div><!-- Coffee Item 13 -->
+<div class="coffee-item">
+    <img src="coffes/coldcoffee.jfif" alt="cold coffee">
+    <h2 class="coffee-name" onclick="toggleDetails(this)">cold coffee</h2>
+    <p><strong>Price:</strong> $5</p>
+    
+    <!-- Hidden details -->
+    <div class="details" style="display: none;">
+        <p><strong>Description:</strong> Cold brew coffee is a type of coffee that is brewed with cold water for a long time</p>
+        <p><strong>Tasting Notes:</strong> smooth, mellow</p>
+        <p><strong>Recommended Brewing Method:</strong> shake </p>
+    </div>
+    
+    <button class="add-to-cart" onclick="addToCart('cold coffee', 5)">Add to Cart</button>
+
+</div><!-- Coffee Item 15 -->
+<div class="coffee-item">
+    <img src="coffes/latte.jpg" alt="latte">
+    <h2 class="coffee-name" onclick="toggleDetails(this)">latte</h2>
+    <p><strong>Price:</strong> $4</p>
+    
+    <!-- Hidden details -->
+    <div class="details" style="display: none;">
+        <p><strong>Description:</strong> A latte is a coffee drink made with espresso, steamed milk, and foam.</p>
+        <p><strong>Tasting Notes:</strong>The espresso provides the base flavor, while the steamed milk adds creaminess and texture. The foam on top enhances the drink's taste and presentation. 
+            Brewing</p>
+        <p><strong>Recommended Brewing Method:</strong>  shot of espresso, steamed milk and foam. </p>
+    </div>
+    
+    <button class="add-to-cart" onclick="addToCart('Colombian Dark Roast', 450)">Add to Cart</button>
+
+</div>
+
+
+
+    <script>
+// Cart functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize cart from localStorage or create empty cart
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    // Function to add item to cart
+    window.addToCart = function(name, price) {
+        // Check if item already exists in cart
+        const existingItem = cart.find(item => item.name === name);
+        
+        if (existingItem) {
+            // Increase quantity if item exists
+            existingItem.quantity += 1;
+        } else {
+            // Add new item to cart
+            cart.push({
+                name: name,
+                price: price,
+                quantity: 1
+            });
+        }
+        
+        // Save to localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
+        
+        // Update cart display
+        updateCartDisplay();
+        
+        // Show confirmation
+        alert(`${name} added to cart!`);
+    };
+    
+    // Function to update cart display
+    function updateCartDisplay() {
+        const cartItemsContainer = document.querySelector('.cart-items');
+        const subtotalElement = document.querySelector('.summary-row:first-child span:last-child');
+        const totalElement = document.querySelector('.summary-total span:last-child');
+        
+        // Calculate totals
+        let subtotal = 0;
+        
+        // Create cart items HTML
+        let cartHTML = '';
+        
+        cart.forEach(item => {
+            const itemTotal = item.price * item.quantity;
+            subtotal += itemTotal;
+            
+            cartHTML += `
+                <div class="cart-item">
+                    <div class="item-info">
+                        <span class="item-name">${item.name}</span>
+                        <span class="item-price">$${item.price.toFixed(2)}</span>
+                    </div>
+                    <div class="item-quantity">
+                        <button onclick="updateQuantity('${item.name}', -1)">-</button>
+                        <span>${item.quantity}</span>
+                        <button onclick="updateQuantity('${item.name}', 1)">+</button>
+                        <button class="remove-btn" onclick="removeItem('${item.name}')">×</button>
+                    </div>
+                    <div class="item-total">$${itemTotal.toFixed(2)}</div>
+                </div>
+            `;
+        });
+        
+        // Update DOM
+        if (cartItemsContainer) {
+            cartItemsContainer.innerHTML = cartHTML || '<p>Your cart is empty</p>';
+        }
+        
+        if (subtotalElement && totalElement) {
+            subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
+            totalElement.textContent = `$${subtotal.toFixed(2)}`;
+        }
+    }
+    
+    // Function to update item quantity
+    window.updateQuantity = function(name, change) {
+        const item = cart.find(item => item.name === name);
+        
+        if (item) {
+            item.quantity += change;
+            
+            // Remove item if quantity reaches 0
+            if (item.quantity <= 0) {
+                cart = cart.filter(item => item.name !== name);
+            }
+            
+            // Save and update
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartDisplay();
+        }
+    };
+    
+    // Function to remove item
+    window.removeItem = function(name) {
+        cart = cart.filter(item => item.name !== name);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartDisplay();
+    };
+    
+    // Function to toggle details
+    window.toggleDetails = function(element) {
+        const details = element.nextElementSibling.nextElementSibling; // Get the details div
+        details.style.display = details.style.display === 'none' ? 'block' : 'none';
+    };
+    
+    // Initialize cart display
+    updateCartDisplay();
+    
+    // Add checkout button functionality
+    const checkoutBtn = document.querySelector('.checkout-btn');
+    if (checkoutBtn) {
+        checkoutBtn.addEventListener('click', function() {
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+            } else {
+                alert('Proceeding to checkout! In a real app, this would redirect to payment.');
+                // Here you would typically redirect to a checkout page
+                // window.location.href = '/checkout';
+            }
+        });
+    }
+});
+
+// Add CSS for cart components
+const cartStyle = document.createElement('style');
+cartStyle.textContent = `
+.cart-items {
+    margin-bottom: 20px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.item-info {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.item-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.item-price {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.item-quantity {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-quantity button {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    width: 25px;
+    height: 25px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.item-quantity button:hover {
+    background: #e0e0e0;
+}
+
+.item-quantity span {
+    min-width: 20px;
+    text-align: center;
+}
+
+.item-total {
+    flex: 1;
+    text-align: right;
+    font-weight: bold;
+}
+
+.remove-btn {
+    margin-left: 10px;
+    background: #ffebee !important;
+    border-color: #ffcdd2 !important;
+    color: #c62828;
+}
+
+.remove-btn:hover {
+    background: #ffcdd2 !important;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.summary-total {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.checkout-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.checkout-btn:hover {
+    background-color: #45a049;
+}
+
+.details {
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    margin: 10px 0;
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+`;
+document.head.appendChild(cartStyle);
+    </script>
+
+</section>
+
+        
+
+
+  <!-- Filter Bar -->
+  <section class="filter-bar">
+     <section class="coffee-items">
+    <h2>Coffee Items</h2> <!-- Added heading -->
+    <!-- Add more coffee items here -->
+</section>
+    <h2>Filter by Brewing Method</h2> <!-- Added heading -->
+    <label for="filter">Select a brewing method:</label>
+    <select id="filter">
+        <option value="all">All</option>
+        <option value="pour-over">Pour-over</option>
+        <option value="french-press">French Press</option>
+        <option value="espresso">Espresso</option>
+        <option value="aeropress">Aeropress</option>
+    </select>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>© 2024 Bean Boutique | All Rights Reserved</p>
+    <div class="social-links">
+        <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">Twitter</a>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS file -->
+    <style>/* about.css - About Us Page Styles */
+
+/* ===== Base Styles ===== */
+
+/* ===== About Section ===== */
+#about {
+    max-width: 900px;
+    margin: 0 auto 3rem;
+    padding: 0 1.5rem;
+    text-align: center;
+}
+
+#about h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary-color);
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+#about h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--accent-color);
+    margin: 1rem auto;
+}
+
+#about p {
+    color: var(--text-color);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+/* ===== Location Section ===== */
+.location {
+    background-color: var(--light-color);
+    padding: 3rem 1.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.location h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.location iframe {
+    width: 100%;
+    max-width: 800px;
+    height: 450px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+}
+
+.location iframe:hover {
+    box-shadow: 0 8px 20px rgba(111, 78, 55, 0.15);
+}
+
+/* ===== Security Section ===== */
+.security-feature {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+}
+
+.security-feature h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.security-feature p {
+    color: var(--text-color);
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.security-feature::before {
+    content: '🔒';
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+/* ===== Social Media Section ===== */
+.social-media-section {
+    background-color: var(--light-color);
+    padding: 3rem 1.5rem;
+    text-align: center;
+}
+
+.social-media-section h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.social-media-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem 1.8rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    color: white;
+    box-shadow: var(--shadow-sm);
+}
+
+.social-btn img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+.instagram-btn {
+    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+    
+}
+
+.facebook-btn {
+    background-color: #1877F2;
+}
+
+.twitter-btn {
+    background-color: #000406;
+}
+
+.social-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.4rem;
+    }
+    
+    #about h2, 
+    .location h2, 
+    .security-feature h2, 
+    .social-media-section h2 {
+        font-size: 1.8rem;
+    }
+    
+    .social-media-links {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .social-btn {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .location iframe {
+        height: 300px;
+    }
+}</style>
+</head>
+<body>
+    <header>
+        <h1>About Us</h1>
+    </header>
+
+    <nav class="nav-container">
+  <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="coffeepage.html">Coffee Selection</a></li>
+            <li><a href="brewing.html">Brewing Equipment</a></li> <!-- Corrected the href to 'brewing.html' -->
+            <li><a href="event.html">Events & Workshops</a></li>
+            <li><a href="offers.html">Special Offers</a></li> 
+            <li><a href="cart.html"></i>Shopping Cart</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+        </ul>
+    </nav>
+
+    <section id="about">
+        <h2>About Bean Boutique</h2>
+        <p>Welcome to Bean Boutique, where coffee is more than a drink – it's a way of life! We offer the finest coffee blends and brewing equipment, with a community of coffee lovers who share our passion for perfection.</p>
+        <p>Bean Boutique began as a passion project by a coffee enthusiast aiming to create a cozy community hub for coffee lovers. Located in a vibrant neighborhood, it quickly established itself with a thoughtfully designed space and a curated menu of high-quality, ethically sourced coffees and light snacks. The boutique thrived through community engagement, hosting workshops and events, while navigating challenges like supply chain issues and increasing competition. Adapting to change, Bean Boutique expanded its online presence and embraced sustainability initiatives. Looking ahead, it aims to grow further, ensuring a commitment to quality and community in every cup.</p>
+    </section>
+    
+
+    <!-- Interactive Map Plugin -->
+    <section class="location">
+        <h2>Find Us</h2> <!-- Changed to h2 for consistency -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.844327381327!2d-122.084!3d37.422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb8a5b9b9b9b!2sGoogleplex!5e0!3m2!1sen!2sus!4v1630298291805!5m2!1sen!2sus" width="600" height="450" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+
+    <!-- Security Feature -->
+    <section class="security-feature">
+        <h2>Security</h2> <!-- Changed to h2 for consistency -->
+        <p>Your data is safe with us! We use SSL encryption to protect your personal information.</p>
+    </section>
+    <section class="social-media-section">
+        <h2>Follow Us on Social Media</h2>
+        <div class="social-media-links">
+            <!-- Instagram -->
+            <a href="https://www.instagram.com" target="_blank" class="social-btn instagram-btn"  aria-label="Follow us on Instagram">
+                <img src="pics/imsta.jpg" alt="Instagram Logo" style= "border: radius 5px;">
+                Follow us on Instagram
+            </a>
+    
+            <!-- Facebook -->
+            <a href="https://www.facebook.com" target="_blank" class="social-btn facebook-btn" aria-label="Follow us on Facebook">
+                <img src="social/facebook logo.webp" alt="Facebook Logo" style="border-radius: 10px; height: 30px; width: 30px;">
+                Follow us on Facebook
+            </a>
+    
+            <!-- Twitter -->
+            <a href="https://www.twitter.com" target="_blank" class="social-btn twitter-btn"  aria-label="Tweets by Bean Boutique">
+                <img src="pics/twiter.jpg" alt="Twitter Logo">
+                Tweets by Bean Boutique
+            </a>
+        </div>
+    </section>
+    <footer>
+        <p>© 2024 Bean Boutique</p>
+    </footer>
+
+    <script src="script.js"></script> <!-- Link to JavaScript file -->
+</body>
+</html>
+
